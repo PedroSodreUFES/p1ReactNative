@@ -1,10 +1,16 @@
-import {Text, View} from 'react-native';
+import Home from "./src/screens/Home";
+import { StatusBar } from "react-native";
+import { Fragment } from "react";
 
-export default function App(){ {/*COmponentes tem de ter nome maiusculo*/}
+export default function App(){
   return(
-    <View>{/* mesma coisa que <></> */}
-      <Text>React Native la em cima</Text>
-      <Text>React Native mais embaixo</Text>
-    </View>
-  )
+    <Fragment>
+      <StatusBar 
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent={true}
+      />
+      <Home />
+    </Fragment>    
+  );
 }
