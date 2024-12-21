@@ -13,12 +13,12 @@ O projeto é uma introdução ao **React Native**, projetado para aprender e exp
 
 Siga os passos abaixo para executar o programa no seu dispositivo:
 
-1. **Instale as dependências do projeto:**
+**Instale as dependências do projeto:**
    ```bash
    npm install
    ```
-2. **Inicie o servidor do Expo:**
+**Inicie o servidor do Expo:**
   ```bash 
    npx expo start
-   ```
-3. **Leia o QR Code na tela e teste o programa!**
+  ```
+**Leia o QR Code na tela e teste o programa!**
