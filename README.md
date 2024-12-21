@@ -17,8 +17,8 @@ Siga os passos abaixo para executar o programa no seu dispositivo:
    ```bash
    npm install
    ```
-2 **Inicie o servidor do Expo:**
+2. **Inicie o servidor do Expo:**
   ```bash 
    npx expo start
    ```
-3 **Leia o QR Code na tela e teste o programa!**
+3. **Leia o QR Code na tela e teste o programa!**
