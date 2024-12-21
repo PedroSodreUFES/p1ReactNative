@@ -1,16 +1,23 @@
+import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, FlatList, ScrollView, Alert} from 'react-native';
 import {styles} from './styles';
 import { Participant } from '../../components/Participant';
 
 export default function Home(){ 
-    const participants = ["Pedro Sodré", "Arthur Tosi", "Theo Mattheo", "Enrico Massariol", "Murilo Salvador", 
-        "Silvio", "Matheus Gon", "Paulo Sérgio", "Cesar", "Conrado", "Raphael Dornelas"];
+    const [participants, setParticipants] = useState<string[]>([]);
+    const[participantName, setParticipantName] = useState("");
 
     function handleParticipantAdd(){
-        if(participants.includes("Pedro Sodré")){
+        if(participants.includes(participantName)){
             return Alert.alert("Participante existe", "Já existe um participante na lista com esse nome!")
         }
+        if(participantName === "")
+        {
+            return Alert.alert("Digite o nome do participante!")
+        }
         console.log("Você clicou no botão de Adicionar!");
+        setParticipants(prevState => [...prevState, participantName]);
+        setParticipantName("");
     }
 
     function handleParticipantRemove(name:string)
@@ -18,7 +25,7 @@ export default function Home(){
         Alert.alert("Remover", `Deseja mesmo remover o participante ${name}?`, [
             {
                 text: "Sim",
-                onPress: () => Alert.alert("Deletado!")
+                onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
             },
             {
                 text: "Não",
@@ -32,11 +39,11 @@ export default function Home(){
     return(
     <View style={styles.container}>
         <Text style={styles.eventName}>
-            Nome do evento
+            Lista de Convidados
         </Text>
       
         <Text style={styles.eventDate}>
-            Sexta, 20 de Dezembro de 2024
+            Sábado, 21 de Dezembro de 2024
         </Text>
 
         <View style={styles.form}>
@@ -44,6 +51,8 @@ export default function Home(){
             style = {styles.input}
             placeholder='Nome do participante'
             placeholderTextColor={'#6b6b6b'}
+            onChangeText={setParticipantName}
+            value={participantName}
             />
 
             <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
